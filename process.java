@@ -5,35 +5,35 @@ import java.util.List;
 import java.util.Scanner;
 
 public class process {
-    static process atmOperations = new process();
+    static process atms = new process();
     static atm[] atm = {
             new atm(2000,20,40000),
  new atm(500,10,5000),
             new atm(100,100,10000)
     };
     static List<atm> Atm_attributes = Arrays.asList(atm);
-    static details[] customerDetails = {
+    static details[] details = {
             new details(1,"Sanjay",236343,25234),
             new details(2,"Ganesh",943152,34123),
             new details(3,"Madhan",683254,26100),
             new details(4,"Naveen",843345,80000),
             new details(5,"Harish",434907,103400)
     };
-    static List<details> CUS = Arrays.asList(customerDetails);
+    static List<details>customers = Arrays.asList(details);
     public int checkBalance(int accountNumber,int pin)
     {
         for(details customer : customers){
-            if(customer.getAccNo() == accountNumber && customer.getPin()==pin){
-                return customer.getAccountBalance();
+            if(customer.getNo() == accountNumber && customer.getPin()==pin){
+                return customer.getBalance();
             }
         }
         return 0;
     }
 
-    public boolean withDrawPossible(int accountNumber,int pin,int amt){
+    public boolean DrawPossible(int accountNumber,int pin,int amt){
         for(details customer : customers){
-  if(customer.getAccNo() == accountNumber && customer.getPin()==pin && customer.getAccountBalance()>=amt){
-                customer.setAccountBalance(customer.getAccountBalance()-amt);
+  if(customer.getNo() == accountNumber && customer.getPin()==pin && customer.getBalance()>=amt){
+                customer.setBalance(customer.getBalance()-amt);
                 return true;
             }
         }
@@ -42,13 +42,13 @@ public class process {
 
     public boolean transferPossible(int accountNumber,int pin,int amt,int otherAccNo){
         for(details customer : customers){
-            if(customer.getAccNo() == accountNumber && customer.getPin()==pin&&customer.getAccountBalance()>=amt){
- customer.setAccountBalance(customer.getAccountBalance()-amt);
+            if(customer.getAccNo() == accountNumber && customer.getPin()==pin&&customer.getBalance()>=amt){
+ customer.setBalance(customer.getBalance()-amt);
             }
         }
         for(details customer : customers){
-            if(customer.getAccNo() == otherAccNo){
-                customer.setAccountBalance(customer.getAccountBalance()+amt);
+            if(customer.getNo() == otherAccNo){
+                customer.setBalance(customer.getBalance()+amt);
                 return true;
             }
         }
@@ -59,7 +59,7 @@ public class process {
     public static boolean correctPinOrNot(int acc)
     {
 for(details customer : customers){
-            if(customer.getAccNo() == acc){
+            if(customer.getNo() == acc){
                 return true;
             }
         }
@@ -68,7 +68,7 @@ for(details customer : customers){
     public static boolean correctPinOrNot(int acc,int pin)
     {
         for(details customer : customers){
-            if(customer.getAccNo() == acc && customer.getPin()==pin){
+            if(customer.getNo() == acc && customer.getPin()==pin){
                 return true;
             }
         }
