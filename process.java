@@ -13,16 +13,16 @@ public class process {
     };
     static List<atm> Atm_attributes = Arrays.asList(atm);
     static details[] customerDetails = {
-            new details(1,"Sanjay",2363,25234),
-            new details(2,"Ganesh",9432,34123),
-            new details(3,"Madhan",6854,26100),
-            new details(4,"Naveen",8345,80000),
-            new details(5,"Harish",4907,103400)
+            new details(1,"Sanjay",236343,25234),
+            new details(2,"Ganesh",943152,34123),
+            new details(3,"Madhan",683254,26100),
+            new details(4,"Naveen",843345,80000),
+            new details(5,"Harish",434907,103400)
     };
     static List<details> CUS = Arrays.asList(customerDetails);
     public int checkBalance(int accountNumber,int pin)
     {
-        for(details customer : CUS){
+        for(details customer : customers){
             if(customer.getAccNo() == accountNumber && customer.getPin()==pin){
                 return customer.getAccountBalance();
             }
@@ -31,7 +31,7 @@ public class process {
     }
 
     public boolean withDrawPossible(int accountNumber,int pin,int amt){
-        for(details customer : CUS){
+        for(details customer : customers){
   if(customer.getAccNo() == accountNumber && customer.getPin()==pin && customer.getAccountBalance()>=amt){
                 customer.setAccountBalance(customer.getAccountBalance()-amt);
                 return true;
@@ -41,12 +41,12 @@ public class process {
     }
 
     public boolean transferPossible(int accountNumber,int pin,int amt,int otherAccNo){
-        for(details customer : CUS){
+        for(details customer : customers){
             if(customer.getAccNo() == accountNumber && customer.getPin()==pin&&customer.getAccountBalance()>=amt){
  customer.setAccountBalance(customer.getAccountBalance()-amt);
             }
         }
-        for(details customer : CUS){
+        for(details customer : customers){
             if(customer.getAccNo() == otherAccNo){
                 customer.setAccountBalance(customer.getAccountBalance()+amt);
                 return true;
@@ -58,7 +58,7 @@ public class process {
 
     public static boolean correctPinOrNot(int acc)
     {
-for(details customer : CUS){
+for(details customer : customers){
             if(customer.getAccNo() == acc){
                 return true;
             }
@@ -67,7 +67,7 @@ for(details customer : CUS){
     }
     public static boolean correctPinOrNot(int acc,int pin)
     {
-        for(details customer : CUS){
+        for(details customer : customers){
             if(customer.getAccNo() == acc && customer.getPin()==pin){
                 return true;
             }
@@ -81,9 +81,8 @@ for(details customer : CUS){
         boolean condition = true;
         int otherAccNo;
         int accNo,pin;
-        System.out.println("Welcome to ABCD Bank ATM");
+        System.out.println("Welcome to CC Bank ATM");
         while (condition) {
-            System.out.println("____Why do you use our ATM?____");
             System.out.println("1 . Check Balance");
             System.out.println("2 . Withdraw Amount");
             System.out.println("3 . Transfer Amount");
@@ -94,10 +93,10 @@ for(details customer : CUS){
             int ch = scanner.nextInt();
             switch (ch) {
                 case 1: {
-                    System.out.println("You have to chosen Balance Checking Option\n");
-                    System.out.println("Please Enter Account Number: ");
+                    System.out.println("Checking Option\n");
+                    System.out.println("Enter Your Account Number: ");
                     accNo = scanner.nextInt();
-                    System.out.println("Enter Your Four Digit Pin: ");
+                    System.out.println("Enter Your  Pincode: ");
                     pin = scanner.nextInt();
                     if (correctPinOrNot(accNo, pin)) {
                         int balance = atmOperations.checkBalance(accNo, pin);
@@ -105,10 +104,10 @@ for(details customer : CUS){
                     }
  }
                 case 2:{
-                    System.out.println("You have to chosen Withdrawing Option\n");
-                    System.out.println("Please Enter Account Number: ");
+                    System.out.println(" Withdrawing Option\n");
+                    System.out.println("Enter Your Account Number: ");
                     accNo = scanner.nextInt();
-                    System.out.println("Enter Your Four Digit Pin: ");
+                    System.out.println("Enter Your Pincode: ");
                     pin = scanner.nextInt();
                     System.out.println("Enter Amount of Money to withdraw: ");
                     amount=scanner.nextInt();
@@ -120,7 +119,7 @@ for(details customer : CUS){
 if(Atm_attributes.stream().filter(atm -> atm.getValue()>=withdrawAmount).count()>1){
                                     Atm_attributes.stream().filter(atm -> atm.getDenomination()==2000).forEach(atm->atm.setValue(atm.getValue()-withdrawAmount));
                                     Atm_attributes.stream().filter(atm -> atm.getDenomination()==2000).forEach(atm->atm.setNumber(atm.getNumber()-(withdrawAmount/2000)));
-                                    System.out.println("AMUNT WITHDRWAN");
+                                    System.out.println("Amount WITHDRWAN");
                                 }
                             }
                         }
@@ -131,7 +130,7 @@ if(atmOperations.withDrawPossible(accNo,pin,amount)){
                                 if(Atm_attributes.stream().filter(atm -> atm.getValue()>=withdrawAmount).count()>1){
                                     Atm_attributes.stream().filter(atm -> atm.getDenomination()==500).forEach(atm->atm.setValue(atm.getValue()-withdrawAmount));
                                     Atm_attributes.stream().filter(atm -> atm.getDenomination()==500).forEach(atm->atm.setNumber(atm.getNumber()-(withdrawAmount/500)));
-                                    System.out.println("AMUNT WITHDRWAN");
+                                    System.out.println("Amount WITHDRWAN");
  }
                             }
                         }
@@ -141,17 +140,17 @@ if(atmOperations.withDrawPossible(accNo,pin,amount)){
                                 if(Atm_attributes.stream().filter(atm -> atm.getValue()>=withdrawAmount).count()>1){
                                     Atm_attributes.stream().filter(atm -> atm.getDenomination()==100).forEach(atm->atm.setValue(atm.getValue()-withdrawAmount));
                                     Atm_attributes.stream().filter(atm -> atm.getDenomination()==100).forEach(atm->atm.setNumber(atm.getNumber()-(withdrawAmount/100)));
-                                    System.out.println("AMUNT WITHDRWAN");
+                                    System.out.println("Amount WITHDRWAN");
                                 }
                             }
                         }
                     }
                 }
                 case 3:{
-                    System.out.println("You have to chosen Transfer Option\n");
-                    System.out.println("Please your Account Number: ");
+                    System.out.println(" Transfer Option\n");
+                    System.out.println("Enter your Account Number: ");
                     accNo = scanner.nextInt();
-                    System.out.println("Enter Your Four Digit Pin: ");
+                    System.out.println("Enter Your Pincode: ");
                     pin = scanner.nextInt();
                     System.out.println("Enter Amount of Money to transfer: ");
  amount=scanner.nextInt();
@@ -168,7 +167,7 @@ if(atmOperations.withDrawPossible(accNo,pin,amount)){
                                             
 Atm_attributes.stream().filter(atm -> atm.getDenomination()==2000).forEach(atm->atm.setValue(atm.getValue()+transferAmount));
                                             Atm_attributes.stream().filter(atm -> atm.getDenomination()==2000).forEach(atm->atm.setNumber(atm.getNumber()+transferAmount/2000));
-                                            System.out.println("AMUNT transferee");
+                                            System.out.println("Amount transferee");
                                         }
                                     }
                                 }
@@ -179,7 +178,7 @@ Atm_attributes.stream().filter(atm -> atm.getDenomination()==2000).forEach(atm->
 
                                             Atm_attributes.stream().filter(atm -> atm.getDenomination()==2000).forEach(atm->atm.setValue(atm.getValue()+transferAmount));
                                             Atm_attributes.stream().filter(atm -> atm.getDenomination()==2000).forEach(atm->atm.setNumber(atm.getNumber()+transferAmount/500));
-                                            System.out.println("AMUNT transferee");
+                                            System.out.println("Amount transferee");
                                         }
                                     }
                                 }
@@ -190,7 +189,7 @@ Atm_attributes.stream().filter(atm -> atm.getDenomination()==2000).forEach(atm->
 
                                             Atm_attributes.stream().filter(atm -> atm.getDenomination()==2000).forEach(atm->atm.setValue(atm.getValue()+transferAmount));
                                             Atm_attributes.stream().filter(atm -> atm.getDenomination()==2000).forEach(atm->atm.setNumber(atm.getNumber()+transferAmount/100));
-                                            System.out.println("AMUNT transferee");
+                                            System.out.println("Amount transferee");
               }
                                     }
                                 }
@@ -204,7 +203,7 @@ Atm_attributes.stream().filter(atm -> atm.getDenomination()==2000).forEach(atm->
                 }
                 case 4: Atm_attributes.forEach(System.out::println);
                 case 5: condition=false;
-                default:System.out.println("Enter from 1,2,3,4,5");
+                default:System.out.println("Enter correct option");
             }
         }
   }
