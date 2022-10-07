@@ -11,38 +11,29 @@ public class atm {
         this.number = number;
         this.value = value;
     }
-
     public int getDenomination() {
         return denomination;
     }
-
     public int getNumber() {
         return number;
   }
-
     public int getValue() {
         return value;
     }
-
     public void setDenomination(int denomination) {
         this.denomination = denomination;
     }
-
     public void setNumber(int number) {
         this.number = number;
     }
-
     public void setValue(int value) {
         this.value = value;
     }
-
-    @Override
-    public String toString() {
-  return "CreationATM{" +
-                "denomination=" + denomination +
-                ", number=" + number +
-                ", value=" + value +
-                '}';
+    public String toString()
+    {
+      return "CreationATM"
+      { "denomination=" + denomination + ", number=" + number + ", value=" + value 
+        };
     }
 
 }
