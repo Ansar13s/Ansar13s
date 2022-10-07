@@ -1,32 +1,32 @@
 package assignment;
 
 public class details {
-	    private int AccNo;
-	    private String AccountHolder;
+	    private int No;
+	    private String Holder;
 	    private int Pin;
-	    private int AccountBalance;
+	    private int Balance;
 
 	    public details(int accNo, String accountHolder, int pin, int accountBalance) {
-	AccNo = accNo;
-	        AccountHolder = accountHolder;
+	No = accNo;
+	       Holder = accountHolder;
 	        Pin = pin;
-	        AccountBalance = accountBalance;
+	       Balance = accountBalance;
 	    }
 
-	    public int getAccNo() {
-	        return AccNo;
+	    public int getNo() {
+	        return No;
 	    }
 
-	    public void setAccNo(int accNo) {
-	        AccNo = accNo;
+	    public void setNo(int accNo) {
+	        No = accNo;
 	    }
 
-	    public String getAccountHolder() {
-	        return AccountHolder;
+	    public String getHolder() {
+	        return Holder;
 	    }
 
-	    public void setAccountHolder(String accountHolder) {
-	        AccountHolder = accountHolder;
+	    public void setHolder(String accountHolder) {
+	       Holder = accountHolder;
 	 }
 
 	    public int getPin() {
@@ -37,17 +37,17 @@ public class details {
 	        Pin = pin;
 	    }
 
-	    public int getAccountBalance() {
-	        return AccountBalance;
+	    public int getBalance() {
+	        return Balance;
 	    }
 
-	    public void setAccountBalance(int accountBalance) {
-	        AccountBalance = accountBalance;
+	    public void setBalance(int accountBalance) {
+	       Balance = accountBalance;
 	    }
 
 	    @Override
 	    public String toString() {
-	  return "CustomerDetails"{ "AccNo=" + AccNo +  ", AccountHolder='" + AccountHolder + '\'' + ", Pin=" + Pin +  ", AccountBalance=" + AccountBalance +
+	  return "CustomerDetails"{ "AccNo=" +No +  ", AccountHolder='" + Holder + '\'' + ", Pin=" + Pin +  ", AccountBalance=" + Balance +
 	      };
 	    }
 	}
