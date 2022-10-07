@@ -47,12 +47,8 @@ public class details {
 
 	    @Override
 	    public String toString() {
-	  return "CustomerDetails{" +
-	                "AccNo=" + AccNo +
-	                ", AccountHolder='" + AccountHolder + '\'' +
-	                ", Pin=" + Pin +
-	                ", AccountBalance=" + AccountBalance +
-	                '}';
+	  return "CustomerDetails"{ "AccNo=" + AccNo +  ", AccountHolder='" + AccountHolder + '\'' + ", Pin=" + Pin +  ", AccountBalance=" + AccountBalance +
+	      };
 	    }
 	}
 
